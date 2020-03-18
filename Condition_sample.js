@@ -1,13 +1,5 @@
-/*Loop Sample
-var age = 15;      
-if( age > 18 ) {
-    document.write("<b>Qualifies for driving</b>");
-}
-else
-{
-    document.write("<b>NOT Qualifies for driving</b>");
-}
-*/
+//-------------------------Condition samples----------------------
+
 var book = "maths";
 if( book == "history" ) {
    document.write("<b>History Book</b>");
@@ -18,4 +10,11 @@ if( book == "history" ) {
 } else {
    document.write("<b>Unknown Book</b>");
 }
-
+var age = 15;      
+if( age > 18 ) {
+    document.write("<b>Qualifies for driving</b>");
+}
+else
+{
+    document.write("<b>NOT Qualifies for driving</b>");
+}

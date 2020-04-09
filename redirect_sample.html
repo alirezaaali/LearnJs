@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirect sample</title>
+    <script type = "text/javascript" >
+    var browserName = navigator.appName;
+    var browserVersion = navigator.appVersion;
+    var browserGeoLocation = navigator.geolocation;
+    document.write(browserName + " " + browserVersion + " " + browserGeoLocation);
+    
+     function redirectthis() {
+
+        if (browserName =="Netscape" ) {
+            window.location="http://www.yahoo.com";  
+
+        } else if (browserName =="Microsoft Internet Explorer" ){
+            window.location="http://www.google.com";  
+        } else {
+            window.location="http://www.rb24.ir";  
+
+        }
+
+
+              
+    }
+     debugger
+    document.write("You will be redirect to Yahoo.com in 10 seconds...");
+    setTimeout('redirectthis()',10000);
+
+    </script>
+</head>
+<body>
+    <!-- <p>Click the following button, you will be redirected to home page.</p>
+      
+      <form>
+         <input type = "button" value = "Redirect Me" onclick = "redirectthis();" />
+      </form> -->
+</body>
+</html>

@@ -1,0 +1,42 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index04 - Array</title>
+</head>
+
+<body>
+    <script>
+        var Name = "Alireza";
+        var Family = "Ali";
+        document.write(Name + " " + Family + "<br />");
+
+        var ArrayName = ["Ali", "Hassan", "Hossein", "Hadi", "Mamad"];
+        
+        document.write(ArrayName.length);
+        document.write("<br />");
+        document.write(ArrayName[3]);
+
+        ArrayName.sort();
+        console.log(ArrayName);
+        document.write("<br />");
+        document.write(ArrayName[3]);
+
+
+        var ArrayName2 = new Array("ali", "mamad", "omran");
+        document.write(ArrayName2.length);
+        document.write("<br />");
+        ArrayName2[2] = "Jafar";
+        document.write(ArrayName2[2]);
+
+        var person = ["Alireza", "Ali", 33];
+        document.write("<br />");
+        document.write("Name is: " + person[0] + " Family is: " + person[1] + " Age is: " +  person[2]);
+
+
+    </script>
+
+</body>
+
+</html>

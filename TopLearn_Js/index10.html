@@ -1,0 +1,46 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index10 Condition Switch</title>
+</head>
+
+<body>
+    Enter a Number:
+    <input type="number" onchange="CheckitNow(this.value)">
+    <br />
+    <h1 id="result"></h1>
+    <script>
+        function CheckitNow(value) {
+            switch (parseInt(value)) {
+                case 1:
+                    {
+                        document.getElementById("result").innerHTML = "One";
+                        break;
+                    }
+                case 2:
+                    {
+                        document.getElementById("result").innerHTML = "Two";
+                        break;
+                    }
+                case 3:
+                    {
+                        document.getElementById("result").innerHTML = "Three";
+                        break;
+                    }
+
+                default:
+                    {
+                        document.getElementById("result").style.color= "Red";
+                        document.getElementById("result").innerHTML = "Hope!";
+
+                    }
+                    break;
+            }
+
+        }
+    </script>
+</body>
+
+</html>

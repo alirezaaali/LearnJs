@@ -1,0 +1,28 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index09 Condition</title>
+</head>
+
+<body>
+    <input type="text" onchange="CheckitNow(this.value)">
+    <br />
+    <h1 id="result"></h1>
+
+
+    <script>
+        // USE && for AND , USE || for OR
+        function CheckitNow(value) {
+            if (value >= 10) {
+                document.getElementById("result").innerHTML = "Equal or greater to 10 ." + "Input value is:" + value + " " + typeof (value);
+            } else {
+                document.getElementById("result").innerHTML = "less than 10" + "Input value is:" + value + " " + typeof (value);
+            }
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index08 Events01</title>
+</head>
+
+<body>
+
+    <h2 id="lbl">Hello</h2>
+    <br />
+    <button onclick="ShowDateTime()" >Click Me!</button>
+    <button onclick="this.innerHTML=Date()" >Click Me!</button>
+    <br />
+    <input type="text" onchange="ChangeInput(this.value)">
+    <script>
+        function ShowDateTime(){
+            document.getElementById("lbl").innerHTML=Date();
+        }
+        function ChangeInput(value)
+        {
+            document.getElementById("lbl").innerHTML=value;
+        }
+
+    </script>
+
+</body>
+
+</html>

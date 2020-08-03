@@ -1,0 +1,61 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index11 - loops</title>
+</head>
+
+<body>
+    <p id="result"></p>
+    <br />
+    <p id="result2"></p>
+    <br />
+    <p id="result3"></p>
+
+    <script>
+        var names = ["Ali", "Zohre", "Jafar", "Eynolah"];
+        //names.sort();
+        debugger
+        var text = "";
+        text = "First kind of for loop: <br />"
+        for (let index = 0; index < names.length; index++) {
+            text += index + "-" + names[index] + "<br />";
+            console.log(index + "-" + names[index]);
+
+        }
+        document.getElementById("result").innerHTML = text + "<br /> <hr>";
+
+        text = "";
+        text = "Second kind of for loop: <br />"
+        for (n in names) {
+
+            text += n + "-" + names[n] + "<br />";
+            console.log(n + "-" + names[n]);
+
+        }
+        document.getElementById("result2").innerHTML = text + "<br /> <hr>";
+
+        var i, j ;
+        var z=0;
+        textN="";
+        for (i = 0; i <= 10; i++) {
+            for(j=0;j<=i;j++)
+            {
+                z= i*j
+
+                textN += i.toString() + " * "+j.toString() +" = "+z.toString() + "     ";
+            }
+            textN += "<br />";
+
+        }
+        document.getElementById("result3").innerHTML = textN + "<br /> <hr>";
+
+
+
+
+
+    </script>
+</body>
+
+</html>

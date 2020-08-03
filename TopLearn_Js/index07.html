@@ -1,0 +1,31 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index07 Object</title>
+</head>
+
+<body>
+    <h1 id=result></h1>
+    <script>
+        var person = {
+            name: "Alireza",
+            family: "Ali",
+            Age: 32,
+            fullName: function () {
+                return this.name + " " + this.family;
+            }
+        };
+        console.log(person.fullName());
+        document.getElementById("result").innerHTML = person.fullName();
+        person people= []
+        
+
+
+    </script>
+    
+
+</body>
+
+</html>

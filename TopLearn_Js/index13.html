@@ -1,0 +1,47 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index13 tryCAtchFinally</title>
+</head>
+
+<body>
+    <p>Please input a number between 5 to 10:</p>
+    <input type="text" id="demo">
+    <button type="button" onclick="myFunction()">Test Input</button>
+    <p id="result"></p>
+    <!-- <p id="finally"></p> -->
+    <script>
+
+        function myFunction()
+        {
+            var message,x;
+            message = document.getElementById("result");
+            message.innerHTML="";
+            x = document.getElementById("demo").value;
+            try {
+                if (x=="") throw "Empty";
+                if(isNaN(x)) throw "Is not a number!"
+                x= Number(x);
+                if(x<5) throw "Number is Too low!"
+                if(x>10) throw "Number is Too High!"
+                if(x>=5 && x<=10 ) throw "Good Job Boy!"
+            } catch (err) {
+                message.innerHTML="input is: " + err; 
+            }
+            finally{
+                document.getElementById("demo").value="";
+            }
+
+
+        }
+ 
+        // try {alireza("zxy")} catch (er) {document.getElementById("result").innerHTML = er.message;}
+        // finally {document.getElementById("finally").innerHTML = "I am finally";}
+        // function alireza(){}
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index14 this key word</title>
+</head>
+<body>
+    This is Person:<p id="resu"></p>
+    This is firstName:<p id="resu2"></p>
+    This is this:<p id="resu3"></p>
+    <button id="mybtn" onclick="this.style.display = 'none'">Click Me!</button>
+    <button id="mybtn2" onclick="myfunction(this)">hide Click Me!</button>
+    
+    <script>
+        var firstName = "Boxer";
+        var person ={
+            firstName:"Alireza",
+            lastName:"Ali",
+            FullName:function(){
+                return this.firstName+ " " +this.lastName;
+
+            }
+        };
+        // alert(person.FullName());
+        document.getElementById("resu").innerHTML = person.FullName();
+        document.getElementById("resu2").innerHTML = firstName;
+        document.getElementById("resu3").innerHTML = this;
+        
+        function myfunction()
+        {
+            // debugger
+            document.getElementById("mybtn").style.display = 'none';
+        }
+
+
+        
+
+    </script>
+    
+
+    
+</body>
+</html>

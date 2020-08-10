@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index20 functionsss</title>
+</head>
+<body>
+    <script>
+        function simpleFunc(a,b) {
+            if(a===undefined){a=4};if(b===undefined){b=4};
+            
+            return a+b;
+        }
+        var z = simpleFunc(500,700);
+        console.log("Inputs are 500,700: "+z);
+        var z2 = simpleFunc();
+        console.log("Inputs are ,: "+z2);
+
+        function funcwithvalue(a=3,b=6) {
+            return a*b;
+        }
+        var z3 = funcwithvalue(550,750);
+        console.log("Inputs are 550,750: "+z3);
+        var z4 = funcwithvalue();
+        console.log("Inputs are ,: "+z4);
+
+
+        function argfunc() {
+            for (let index = 0; index < arguments.length; index++) {
+                console.log(arguments[index]);
+            }
+            
+            
+        }
+        argfunc(4,"hassan",true,44);
+
+
+        function nestedfun() {
+            var n=0;
+            function plus() {
+                n++;
+            }
+            plus();
+            plus();
+            return n;
+            
+        }
+        console.log(nestedfun());
+        
+    </script>
+    
+</body>
+</html>

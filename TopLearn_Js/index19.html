@@ -1,0 +1,46 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index19 function</title>
+</head>
+
+<body>
+    <script>
+        function simpleFunction() {
+            var a = 10;
+            var b = 20;
+            var c = a * b;
+            //alert(c);
+        }
+        simpleFunction();
+
+        var x = function (a, b) { return a + b }
+        console.log(x(3, 9));
+        // debugger
+        var my = new Function("a", "b", "return a*b");
+        var z = my(4, 6);
+
+        console.log(z);
+
+
+// self invoke function
+        (function () {
+            alert("Loaded....");
+        })()
+//arrow function
+
+var sum = (a,b) => a+b;
+console.log(sum(5,6));
+
+var sum2 = (a,b) => {return a%b};
+console.log(sum2(4,2));
+
+
+
+    </script>
+
+</body>
+
+</html>

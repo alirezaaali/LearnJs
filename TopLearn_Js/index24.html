@@ -1,0 +1,44 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index24 eventListener</title>
+</head>
+
+<body>
+    My name is:<h2 id="wname"></h2>
+    <br />
+    This is Hight:<h2 id="hight"></h2>
+    <br />
+    This is width:<h2 id="width"></h2>
+    <br />
+    This is a random number:<h2 id="random"></h2>
+    <br />
+    <button id="mybtb">resize me</button>
+
+    <script>
+        window.addEventListener("resize", showvalue);
+        function showvalue() {
+
+
+            document.getElementById("hight").innerHTML = window.innerHeight;
+            document.getElementById("width").innerHTML = window.innerWidth;
+            document.getElementById("random").innerHTML = Math.random();
+            document.getElementById("wname").innerHTML = Window.name;
+            
+        }
+
+        // document.getElementById("mybtb").addEventListener("click",resizeme)
+        // function resizeme() {
+        //     var mywindow;
+        //     mywindow.open("", "", "width=100, height=100");
+
+        //     //window.resizeTo(640,480);
+        // }
+      
+    </script>
+
+</body>
+
+</html>

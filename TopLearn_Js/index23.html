@@ -1,0 +1,46 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index23 events</title>
+    <style>
+        #sampleDiv{
+            height: 440px;
+            width: 440px;
+            position: relative;
+            background-color:red;
+        }
+    </style>
+</head>
+<body>
+    <div id="sampleDiv"
+    onmouseover="mOver(this)"
+    onmousedown="mDown(this)"
+    onmouseup="mUp(this)"
+    onmouseout="mOut(this)"
+    ></div>
+    <script>
+        //var element = document.getElementById("sampleDiv");
+        function mOver(obj)
+        {
+            obj.style.background ="yellow";
+            obj.innerHTML = "Mouse Over Now!"
+        }
+        function mDown(obj)
+        {
+            obj.style.background ="green";
+            obj.innerHTML = "Mouse Down Now!"
+        }
+        function mUp(obj)
+        {
+            obj.style.background ="black";
+            obj.innerHTML = "Mouse Up Now!"
+        }
+        function mOut(obj)
+        {
+            obj.style.background ="red";
+            obj.innerHTML = "Mouse Out Now!"
+        }
+    </script>>
+</body>
+</html>

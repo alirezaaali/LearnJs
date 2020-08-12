@@ -1,0 +1,62 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index21 DOM</title>
+    <style>
+        .myCss {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="" id="frm1">
+        First Name: <input type="text" name="txtFname" value="Ali" />
+        <br />
+        Last Name: <input type="text" name="txtLname" value="Aali" />
+        <br />
+        <input type="submit" id="btSubmit" value="Submit" />
+    </form>
+    <button type="button" onclick="myFucntion()"> Try Me!</button>
+    <p id="demo"></p>
+
+    <script>
+        function myFucntion() {
+            debugger
+            var x = document.forms["frm1"];
+            var text = "";
+            for (let i = 0; i < x.length; i++) {
+                text += x.elements[i].value + "<br />";
+            }
+            document.getElementById("demo").innerHTML = text;
+
+
+        }
+
+
+
+        // var Ps = document.getElementsByTagName("p");
+        // for(n in Ps)
+        // {
+        //     console.log(Ps[n].innerHTML);
+        // }
+        // var Ps = document.getElementsByClassName("myCss");
+        // for(n in Ps)
+        // {
+        //     console.log(Ps[n].innerHTML);
+        // }
+        // var Ps = document.querySelectorAll("p.myCss")
+        // for(n in Ps)
+        // {
+        //     console.log(Ps[n].innerHTML);
+        // }
+
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index26 </title>
+</head>
+
+<body>
+
+    <p id="p1">Alireza</p>
+    <p id="p2">Hadi</p>
+    <p id="p3">Reza</p>
+    <p id="p4">Jafar</p>
+    <button onclick="ShowInside()">Show Inside</button>
+    <p id="demo"></p>
+    <script>
+        function ShowInside() {
+
+            var myCollection = document.getElementsByTagName("p");
+            var outtext = "";
+            for (let i = 0; i < myCollection.length; i++) {
+                outtext += myCollection[i].innerHTML + " <br />";
+            }
+            for (let i = 0; i < myCollection.length; i++) {
+                myCollection[i].style.color="red";
+            }
+            
+
+            var mydemo = document.getElementById("demo");
+            mydemo.style.color = "blue";
+            mydemo.innerHTML = outtext;
+        }
+
+    </script>
+
+</body>
+
+</html>

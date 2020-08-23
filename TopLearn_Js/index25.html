@@ -1,0 +1,34 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index25 Craete Instant element</title>
+</head>
+
+<body>
+    <div id="div1">
+        <p id="p1">Hi, I am P1</p>
+        <p id="p2">Hi, I am P2</p>
+    </div>
+    <script>
+        var para = document.createElement("p");
+        para.style.color="blue";
+        var node = document.createTextNode("Hi, I am new Paragraph");
+        para.appendChild(node);
+
+        var element = document.getElementById("div1");
+        //element.appendChild(para); //az entehaye div ezafeh mikonam
+        //element.prepend(para); //az balay div ezafeh mikonam
+        //var p2= document.getElementById("p2");
+        //element.insertBefore(para,p2);
+        element.prepend(para);
+
+
+
+    </script>
+
+
+</body>
+
+</html>

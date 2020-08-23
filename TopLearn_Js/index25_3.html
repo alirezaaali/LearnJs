@@ -1,0 +1,31 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index25 remove Instant element</title>
+</head>
+
+<body>
+    <div id="div1">
+        <p id="p1">Hi, I am P1</p>
+        <p id="p2">Hi, I am P2</p>
+    </div>
+    <script>
+        //New
+        var para = document.createElement("p");
+        para.style.color="blue";
+        var node = document.createTextNode("Hi, I am new Paragraph");
+        para.appendChild(node);
+
+        
+        var element = document.getElementById("div1");
+        var p2= document.getElementById("p2");
+        element.replaceChild(para,p2);
+        
+    </script>
+
+
+</body>
+
+</html>

@@ -91,7 +91,6 @@ function stopClock() {
 function startClock() {
     myTimer = setInterval(myfnc, 1000);
 }
-*/
 
 //--------------------------------------------------------------
 //index31
@@ -128,4 +127,48 @@ function checkCookie() {
             setCookie("username", user, 30);
         }
     }
+}
+
+
+//--------------------------------------------------------------
+//index32
+
+function GetTextFile() {
+    debugger
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        document.getElementById("demo").innerHTML = this.responseText;
+
+    }
+
+    xhttp.open("GET", "index32.txt", true);
+    xhttp.send();
+
+
+}
+*/
+
+//--------------------------------------------------------------
+//index33
+function GetTextFile() {
+    debugger
+    fetch("https://gorest.co.in/public-api/users/123").then(response => {
+        return response.json();
+    }).then(resp => {
+        console.log(resp);
+        // for (p in resp) {
+        //     console.log(p.title);
+        // }
+
+
+
+        for (let i = 0; i < resp.length; i++) {
+            console.log(resp[i].title);
+
+        }
+
+    }).catch(err => {
+        document.getElementById("demo").innerHTML = err;
+    })
+
 }

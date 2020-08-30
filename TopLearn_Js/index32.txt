@@ -1,0 +1,3 @@
+Hi,
+I am a .txt file on server,
+and you are reaching me by Javascript AJAX

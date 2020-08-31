@@ -152,23 +152,42 @@ function GetTextFile() {
 //index33
 function GetTextFile() {
     debugger
-    fetch("https://gorest.co.in/public-api/users/123").then(response => {
+    //Correct Version
+    // var requets = new XMLHttpRequest();
+    // requets.open("GET", "https://gorest.co.in/public-api/posts", true);
+    // requets.onload = function () {
+    //     var data = JSON.parse(this.response)
+    //     console.log(typeof (data));
+    //     console.log(Object.keys(data.data).length);
+
+    //     if (requets.status >= 200 && requets.status < 400) {
+    //         data.data.forEach((data) => {
+    //             console.log(data.title)
+    //         })
+    //         // for (let i = 0; i < Object.keys(data.data).length; i++) {
+    //         //     console.log(data.data[i].title);
+
+    //         // }
+    //     } else {
+    //         console.log('error')
+    //     }
+    // }
+    // requets.send();
+
+
+
+    fetch("https://gorest.co.in/public-api/posts").then(response => {
         return response.json();
-    }).then(resp => {
-        console.log(resp);
-        // for (p in resp) {
-        //     console.log(p.title);
-        // }
+    }).then(data => {
+        console.log(typeof (data));
+        console.log(Object.keys(data.data).length);
 
 
-
-        for (let i = 0; i < resp.length; i++) {
-            console.log(resp[i].title);
-
+        for (let i = 0; i < Object.keys(data.data).length; i++) {
+            console.log(data.data[i].title);
         }
 
-    }).catch(err => {
-        document.getElementById("demo").innerHTML = err;
-    })
+
+    }).catch(err => { console.log('error') })
 
 }

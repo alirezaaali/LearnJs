@@ -181,10 +181,11 @@ function GetTextFile() {
     }).then(data => {
         console.log(typeof (data));
         console.log(Object.keys(data.data).length);
+        if (data.code = "200") {
 
-
-        for (let i = 0; i < Object.keys(data.data).length; i++) {
-            console.log(data.data[i].title);
+            for (let i = 0; i < Object.keys(data.data).length; i++) {
+                console.log(data.data[i].title);
+            }
         }
 
 

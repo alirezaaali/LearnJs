@@ -189,7 +189,7 @@ function GetTextFile() {
     }).catch(err => { console.log('error') })
 
 }
-*/
+
 
 //--------------------------------------------------------------
 //index37
@@ -213,3 +213,151 @@ request.onreadystatechange = function () {
 
 request.send()
 
+
+//--------------------------------------------------------------
+//index38
+
+
+var request
+
+if (window.XMLHttpRequest) {
+    request = new XMLHttpRequest()
+} else {
+    request = new ActiveXObject('Microsoft.XMLHTTP')
+}
+
+request.open('GET', 'index32.txt')
+//requets.open("GET", "https://gorest.co.in/public-api/posts", true);
+request.onreadystatechange = function () {
+    if (request.readyState === 4 && request.status === 200) {
+        console.log(request)
+        // var modify = document.getElementsByTagName('li');
+        // modify[2].innerHTML = request.responseText;
+
+        var modify = document
+            .getElementsByTagName('ul')[1].getElementsByTagName('li');
+        for (let i = 0; i < modify.length; i++) {
+            if (i < 5) {
+                modify[i].innerHTML = request.responseText;
+                modify[i].style.color = "red";
+            } else {
+                modify[i].innerHTML = "This text is static";
+                modify[i].style.color = "green";
+            }
+
+        }
+    }
+}
+request.send()
+
+//--------------------------------------------------------------
+//index39
+var request
+
+if (window.XMLHttpRequest) {
+    request = new XMLHttpRequest()
+} else {
+    request = new ActiveXObject('Microsoft.XMLHTTP')
+}
+
+request.open('GET', 'data.xml')
+//requets.open("GET", "https://gorest.co.in/public-api/posts", true);
+request.onreadystatechange = function () {
+    if (request.readyState === 4 && request.status === 200) {
+        var names = request.responseXML.getElementsByTagName('name');
+        var reknown = request.responseXML.getElementsByTagName('reknown');
+        var output = '<ul>';
+        for (let i = 0; i < names.length; i++) {
+            output += '<li>' + names[i].firstChild.nodeValue + ' which reknown as: ' +
+                reknown[i].firstChild.nodeValue + '</li>';
+        }
+        output += '</ul>';
+
+        document.getElementById('update').innerHTML = output;
+    }
+
+}
+request.send();
+
+//--------------------------------------------------------------
+//index40
+var request
+
+if (window.XMLHttpRequest) {
+    request = new XMLHttpRequest()
+} else {
+    request = new ActiveXObject('Microsoft.XMLHTTP')
+}
+
+request.open('GET', 'data.json')
+//requets.open("GET", "https://gorest.co.in/public-api/posts", true);
+request.onreadystatechange = function () {
+    if (request.readyState === 4 && request.status === 200) {
+        var items = JSON.parse(request.responseText);
+        var output = '<ul>';
+        for (var key in items) {
+            output += '<li>' + items[key].name + ' which reknown as: ' +
+                items[key].reknown + '</li>';
+        }
+        output += '</ul>';
+        document.getElementById('update').innerHTML = output;
+    }
+}
+request.send();
+*/
+
+//--------------------------------------------------------------
+//index41
+function loadAJAX() {
+    var request
+
+    if (window.XMLHttpRequest) {
+        request = new XMLHttpRequest()
+    } else {
+        request = new ActiveXObject('Microsoft.XMLHTTP')
+    }
+
+    request.open('GET', 'data.json')
+    //requets.open("GET", "https://gorest.co.in/public-api/posts", true);
+    request.onreadystatechange = function () {
+        if (request.readyState === 4 && request.status === 200) {
+            var items = JSON.parse(request.responseText);
+            var output = '<ul>';
+            for (var key in items) {
+                output += '<li>' + items[key].name + '</li>';
+            }
+            output += '</ul><button onclick="showfull()">Show eveyhing!</button>';
+            document.getElementById('names').innerHTML = output;
+
+        }
+    }
+    request.send();
+}
+
+
+function showfull() {
+    var request
+
+    if (window.XMLHttpRequest) {
+        request = new XMLHttpRequest()
+    } else {
+        request = new ActiveXObject('Microsoft.XMLHTTP')
+    }
+
+    request.open('GET', 'data.json')
+    //requets.open("GET", "https://gorest.co.in/public-api/posts", true);
+    request.onreadystatechange = function () {
+        if (request.readyState === 4 && request.status === 200) {
+            var items = JSON.parse(request.responseText);
+            var output = '<ul>';
+            for (var key in items) {
+                output += '<li>' + items[key].name + ' which reknown as: ' +
+                    items[key].reknown + ' and bio is: ' + items[key].bio + '</li>';
+            }
+            output += '</ul>';
+            document.getElementById('fulldata').innerHTML = output;
+        }
+    }
+    request.send();
+
+}

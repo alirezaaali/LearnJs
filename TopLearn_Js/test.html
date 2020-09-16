@@ -1,0 +1,32 @@
+<html>
+
+<head>
+    <title>JavaScript toLocaleString Method</title>
+</head>
+
+<body>
+    <p id="demo"></p>
+
+    <script type="text/javascript">
+        debugger
+        var userFormat = "en-US";
+        var original = "2020-09-01T12:14:05.663-01:23";
+        var time = original.substr(11, 8);
+        var HH = time.substr(0, 2);
+        var MM = time.substr(3, 2);
+        var SS = time.substr(6, 2);
+        var date = original.substr(0, 10);
+        var YY = date.substr(0, 4);
+        var MO = date.substr(5, 2);
+        var DD = date.substr(8, 2);
+
+        var Ndate = new Date(YY, MO, DD, HH, MM, SS);
+
+        // sometimes even the US needs 24-hour time
+        console.log(Ndate.toLocaleTimeString(userFormat, {
+            hour12: false,
+        }));
+    </script>
+</body>
+
+</html>

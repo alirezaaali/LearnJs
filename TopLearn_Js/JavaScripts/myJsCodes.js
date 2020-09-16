@@ -361,7 +361,7 @@ function showfull() {
     request.send();
 
 }
-*/
+
 
 //--------------------------------------------------------------
 //index43
@@ -399,3 +399,34 @@ function tossCoin(e) {
     " || Computer Score:" +
     Score[1];
 }
+
+
+//--------------------------------------------------------------
+//index45
+//debugger
+
+const answersArray = ["I am Ok!",
+    "I don`t know this",
+    "I did not undestand"];
+const message = document.querySelector('.message');
+const question = document.querySelector('input');
+const button = document.querySelector('button');
+button.addEventListener("click", function () {
+    let res = Math.floor(Math.random() * answersArray.length);
+    message.innerText = question.value + " " + answersArray[res];
+    question.value = "";
+})
+*/
+
+//--------------------------------------------------------------
+//index46
+//debugger
+const gameArea = document.querySelector(".game");
+const button = document.querySelector("button");
+let gameplay = false;
+button.addEventListener("click", function () {
+    if (!gameplay) {
+        gameplay = true;
+
+    }
+})

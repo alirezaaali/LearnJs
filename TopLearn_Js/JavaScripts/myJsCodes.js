@@ -420,13 +420,52 @@ button.addEventListener("click", function () {
 
 //--------------------------------------------------------------
 //index46
-//debugger
+//debugger;
 const gameArea = document.querySelector(".game");
 const button = document.querySelector("button");
+const message = document.querySelector(".message");
+let score = 0;
 let gameplay = false;
 button.addEventListener("click", function () {
-    if (!gameplay) {
-        gameplay = true;
-
+  if (!gameplay) {
+    gameplay = true;
+    score = 0;
+    maker();
+    button.innerHTML = "Check Combo";
+  } else {
+    const numbers = document.querySelectorAll(".numb");
+    score++;
+    message.innerHTML = "Gusses: " + score;
+    let winCondition = 0;
+    for (let i = 0; i < numbers.length; i++) {
+      if (numbers[i].value == numbers[i].Correct) {
+        numbers[i].style.backgroundColor = "Green";
+        numbers[i].style.color = "White";
+        winCondition++;
+      } else {
+        let color = numbers[i].value < numbers[i].Correct ? "Blue" : "Red";
+        numbers[i].style.backgroundColor = color;
+        numbers[i].style.color = "White";
+      }
+      if (winCondition == numbers.length) {
+        message.innerHTML = "you win in: " + score + " try.";
+        button.hidden = "true";
+      }
     }
-})
+  }
+  function maker() {
+    for (let i = 0; i < 6; i++) {
+      let el = document.createElement("input");
+      el.setAttribute("type", "Number");
+      el.max = 9;
+      el.min = 0;
+      el.size = 1;
+      el.style.width = "50px";
+      el.classList.add("numb");
+      el.Correct = Math.floor(Math.random() * 10);
+      el.value = 0;
+      el.order = i;
+      gameArea.appendChild(el);
+    }
+  }
+});

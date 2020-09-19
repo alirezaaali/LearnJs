@@ -429,9 +429,11 @@ let gameplay = false;
 button.addEventListener("click", function () {
   if (!gameplay) {
     gameplay = true;
+    gameArea.innerHTML = "";
     score = 0;
     maker();
     button.innerHTML = "Check Combo";
+    message.innerHTML = "Guss!";
   } else {
     const numbers = document.querySelectorAll(".numb");
     score++;
@@ -448,10 +450,15 @@ button.addEventListener("click", function () {
         numbers[i].style.color = "White";
       }
       if (winCondition == numbers.length) {
-        message.innerHTML = "you win in: " + score + " try.";
-        button.hidden = "true";
+        EndGame();
       }
     }
+  }
+  function EndGame() {
+    message.innerHTML = "you win in: " + score + " try.";
+    gameplay = false;
+    button.innerHTML = "Restart Game";
+    //button.hidden = "true";
   }
   function maker() {
     for (let i = 0; i < 6; i++) {

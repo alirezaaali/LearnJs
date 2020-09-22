@@ -1,0 +1,103 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timer</title>
+    <style>
+      .hidden {
+        display: none;
+      }
+      .clock {
+        background-color: blue;
+        width: 400px;
+        text-align: center;
+        font-size: 1em;
+        color: white;
+      }
+      .clock > span {
+        padding: 10px;
+        border-radius: 10px;
+        background-color: black;
+      }
+      .clock > span > span {
+        padding: 5px;
+        border-radius: 10px;
+        background-color: red;
+        margin-right: 2px;
+      }
+      input {
+        padding: 15px;
+        margin: 20px;
+        font-size: 1.5em;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <input type="date" name="endDate" />
+      <div class="clock">
+        <span><span class="days">0</span>Days</span>
+        <span><span class="hours">0</span>Hours</span>
+        <span><span class="mintues">0</span>Minutes</span>
+        <span><span class="seconds">0</span>Seconds</span>
+      </div>
+    </div>
+    <!-- <script src="JavaScripts/myJsCodes.js"></script> -->
+    <script>
+      //index55
+      //debugger;
+      const endDate = document.querySelector("input[name='endDate']");
+      const clock = document.querySelector(".clock");
+      let timerInterval;
+      let timerStop = true;
+      const savedTime = localStorage.getItem("countdown") || false;
+      if (savedTime) {
+        startClock(savedTime);
+        let inputValue = new Date(savedTime);
+        endDate.valueAsDate = inputValue;
+      }
+      endDate.addEventListener("change", function (e) {
+        e.preventDefault();
+        clearInterval(timerInterval);
+        localStorage.setItem("countdown", endDate.value);
+        startClock(endDate.value);
+        timerStop = true;
+      });
+      function startClock(d) {
+        function updateCounter() {
+          let pro = timeLeft(d);
+          if (pro.total <= 0) {
+            timerStop = false;
+          }
+          for (let t1 in pro) {
+            let el = clock.querySelector("." + t1);
+            if (el) {
+              el.innerHTML = pro[t1];
+            }
+          }
+        }
+        updateCounter();
+        if (timerStop) {
+          timerInterval = setInterval(updateCounter, 1000);
+        } else {
+          clearInterval(timerInterval);
+        }
+      }
+      function timeLeft(d) {
+        const currentDate = new Date();
+        const t = Date.parse(d) - Date.parse(currentDate);
+        let seconds = Math.floor((t / 1000) % 60);
+        let mintues = Math.floor((t / 1000 / 60) % 60);
+        let hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+        let days = Math.floor(t / (1000 * 60 * 60 * 24));
+        return {
+          total: t,
+          days: days,
+          hours: hours,
+          mintues: mintues,
+          seconds: seconds,
+        };
+      }
+    </script>
+  </body>
+</html>

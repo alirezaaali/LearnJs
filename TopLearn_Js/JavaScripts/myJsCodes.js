@@ -416,7 +416,7 @@ button.addEventListener("click", function () {
     message.innerText = question.value + " " + answersArray[res];
     question.value = "";
 })
-*/
+
 
 //--------------------------------------------------------------
 //index46
@@ -476,3 +476,124 @@ button.addEventListener("click", function () {
     }
   }
 });
+
+
+//--------------------------------------------------------------
+//index52
+//debugger;
+
+const message = document.querySelector(".message");
+const guess = document.querySelector("input");
+const button = document.querySelector("button");
+const myArray = [
+  "ایمان",
+  "پرهام",
+  "سارا",
+  "رضا",
+  "مینا",
+  "محسن",
+  "محمد",
+  "عماد",
+];
+let inPlay = false;
+let scramble = "";
+let scrambled = "";
+let score = 0;
+button.addEventListener("click", function () {
+  console.log("Clicked");
+  if (!inPlay) {
+    inPlay = true;
+    button.innerHTML = "Guess";
+    guess.classList.toggle("hidden");
+    guess.value = "";
+    scramble = createWord();
+    scrambled = randomArray(scramble.split("")).join("");
+    message.innerHTML = scrambled;
+  } else {
+    let tempGuess = guess.value;
+    score++;
+    if (tempGuess === scramble) {
+      inPlay = false;
+      message.innerHTML =
+        "Correct it was " + scramble + " it look " + score + " guesses";
+      button.innerHTML = "Start";
+      guess.classList.toggle("hidden");
+    } else {
+      message.innerHTML = "Wrong " + scrambled;
+    }
+  }
+});
+
+function createWord() {
+  let randomIndex = Math.floor(Math.random() * myArray.length);
+  let tempWord = myArray[randomIndex];
+  return tempWord;
+}
+
+function randomArray(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    let temp = arr[i];
+
+    let j = Math.floor(Math.random() * (i + 1));
+    arr[i] = arr[j];
+    arr[j] = temp;
+  }
+  return arr;
+}
+*/
+
+//--------------------------------------------------------------
+//index55
+//debugger;
+const endDate = document.querySelector("input[name='endDate']");
+const clock = document.querySelector(".clock");
+let timerInterval;
+let timerStop = true;
+const savedTime = localStorage.getItem("countdown") || false;
+if (savedTime) {
+  startClock(savedTime);
+  let inputValue = new Date(savedTime);
+  endDate.valueAsDate = inputValue;
+}
+endDate.addEventListener("change", function (e) {
+  e.preventDefault();
+  clearInterval(timerInterval);
+  localStorage.setItem("countdown", endDate.value);
+  startClock(endDate.value);
+  timerStop = true;
+});
+function startClock(d) {
+  function updateCounter() {
+    let pro = timeLeft(d);
+    if (pro.total <= 0) {
+      timerStop = false;
+    }
+    for (let t1 in pro) {
+      let el = clock.querySelector("." + t1);
+      if (el) {
+        el.innerHTML = pro[t1];
+      }
+    }
+  }
+  updateCounter();
+  if (timerStop) {
+    timerInterval = setInterval(updateCounter, 1000);
+  } else {
+    clearInterval(timerInterval);
+  }
+}
+function timeLeft(d) {
+  const currentDate = new Date();
+  const t = Date.parse(d) - Date.parse(currentDate);
+  let seconds = Math.floor((t / 1000) % 60);
+  let mintues = Math.floor((t / 1000 / 60) % 60);
+  let hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+  let days = Math.floor(t / (1000 * 60 * 60 * 24));
+  return {
+    total: t,
+    days: days,
+    hours: hours,
+    mintues: mintues,
+    seconds: seconds,
+  };
+}

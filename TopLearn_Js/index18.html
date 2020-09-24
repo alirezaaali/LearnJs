@@ -1,59 +1,51 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>index18 What is Json & constructor</title>
-</head>
-<body>
+  </head>
+  <body>
     <p id="demo"></p>
     <script>
+      var ali = { name: "Iman", family: "Madaeny", age: 30 };
 
-var ali = { name: "Iman", family: "Madaeny", age: 30 };
+      function Person(name, family, age) {
+        this.name = name;
+        this.family = family;
+        this.age = age;
+        this.fullName = function () {
+          return this.name + " " + this.family;
+        };
+      }
 
-function Person(name, family, age) {
-  this.name = name;
-  this.family = family;
-  this.age = age;
-  this.fullName = function()
-  {
-   return this.name + " " + this.family; 
-  }
-}
+      var iman = new Person("iman", "madaeny", 20);
+      iman.carname = "Pride";
+      console.log(iman.fullName());
 
-var iman = new Person("iman", "madaeny", 20);
-iman.carname = "Pride";
-console.log(iman.fullName());
+      var mina = new Person("mina", "minaei", 18);
 
-var mina = new Person("mina", "minaei", 18);
+      var people = [];
+      people.push(new Person("iman", "madaeny", 30));
+      people.push(new Person("parham", "madaeny", 5));
+      people.push(new Person("sara", "ahmadi", 19));
+      people.push(new Person("ali", "rezaei", 41));
 
-var people = [];
-people.push(new Person("iman", "madaeny", 30));
-people.push(new Person("parham", "madaeny", 5));
-people.push(new Person("sara", "ahmadi", 19));
-people.push(new Person("ali", "rezaei", 41));
+      console.log(people);
 
-console.log(people);
+      var text = "";
+      debugger;
+      for (x in people) {
+        //   text +=
+        //     people[x].name +
+        //     " " +
+        //     people[x].family +
+        //     " -> " +
+        //     people[x].age +
+        //     " <br/>";
+        text += people[x].fullName() + " " + people[x].age + " <br/>";
+      }
 
-var text = "";
-debugger
-for (x in people) {
-//   text +=
-//     people[x].name +
-//     " " +
-//     people[x].family +
-//     " -> " +
-//     people[x].age +
-//     " <br/>";
-text +=
-    people[x].fullName() +
-    " " +
-    people[x].age +
-    " <br/>";
-}
-
-document.getElementById("demo").innerHTML = text;
+      document.getElementById("demo").innerHTML = text;
     </script>
-
-
-</body>
+  </body>
 </html>

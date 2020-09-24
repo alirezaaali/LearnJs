@@ -1,15 +1,29 @@
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>index03- Variable/Function</title>
-    <script src="JavaScripts/myJsCodes.js"></script>
-</head>
+    <!-- <script src="JavaScripts/myJsCodes.js"></script> -->
+  </head>
 
-<body>
+  <body>
     <a href="#" onclick="AliAlert()">Show Sum Of X & Y</a>
+    <script>
+      var Name = "Alireza Ali";
+      var Number = 7525;
+      var isExist = true;
 
-</body>
+      // alert(typeof Name + " " + Name);
+      // alert(typeof Number + " " + Number);
+      // alert(typeof isExist + " " + isExist);
+      // AliAlert();
 
+      function AliAlert() {
+        var x = 150;
+        var y = 200;
+        var c = x + y;
+        alert(c);
+      }
+    </script>
+  </body>
 </html>

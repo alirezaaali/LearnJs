@@ -1,40 +1,36 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>index17 formControl</title>
-</head>
-<body>
-    <form name="myForm" method="POST" action="../index02.html" onsubmit="return myFunc()">
-        Please enter your name:<input name="fname" type="text">
-        Please enter your family:<input name="fname" type="text" required>
-        <p id="res" style="color: red;"></p>
-        <input type="submit" value="Submit">
-    
-    
+  </head>
+  <body>
+    <form
+      name="myForm"
+      method="POST"
+      action="../index02.html"
+      onsubmit="return myFunc()"
+    >
+      Please enter your name:<input name="fname" type="text" /> Please enter
+      your family:<input name="fname" type="text" required />
+      <p id="res" style="color: red"></p>
+      <input type="submit" value="Submit" />
     </form>
     <script>
-    
-        function myFunc() {
-            //debugger;
-            var x = document.forms["myForm"]["fname"].value;
-            var text;
-            if (x == "") {
-                text = "Please enter your name";
-                document.getElementById("res").innerHTML=text;
-                //alert(text);
-                
-                return false;
-            }else
-            {
-                return true;
-            }
-            
-        }
-            
-        
+      function myFunc() {
+        //debugger;
+        var x = document.forms["myForm"]["fname"].value;
+        var text;
+        if (x == "") {
+          text = "Please enter your name";
+          document.getElementById("res").innerHTML = text;
+          //alert(text);
 
+          return false;
+        } else {
+          return true;
+        }
+      }
     </script>
-    
-</body>
+  </body>
 </html>

@@ -25,7 +25,7 @@
       state.focus();
     }
     var itembball =
-        parseInt(document.getElementById("txt-q-bball").value, 10) || 0,
+      parseInt(document.getElementById("txt-q-bball").value, 10) || 0,
       itemjersey =
         parseInt(document.getElementById("txt-q-jersey").value, 10) || 0,
       itemPower =
@@ -55,5 +55,18 @@
     ShippingCost = shippingCostPer * totalQTY;
     estimate = totalItemPrice * taxtFactor + ShippingCost;
     document.getElementById("txt-estimate").value = estimate;
+
+    var result = document.getElementById("results");
+
+    result.innerHTML = 'Total Items: ' + totalQTY + '<br />';
+    result.innerHTML += 'Total shipping Cost: ' + ShippingCost.toFixed(2) + '<br />';
+    result.innerHTML += 'Tax: ' + (((taxtFactor - 1) * 100).toFixed(2) + ' % ' + shippingState);
+
+
+
+
+
+
+
   }
 })();

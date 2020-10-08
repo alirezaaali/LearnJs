@@ -1,46 +1,62 @@
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>index27 BOM</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <p>please resize this page to see hiddenss</p>
     <p id="demo"></p>
     <p id="demo2"></p>
     <p id="demo3"></p>
     <button onclick="ChaneMyLocation()">Go To Gmail</button>
+    <button onclick="openNewWindows()">Open TopLearn.com</button>
+    <button onclick="closeWindow()">close TopLearn.com</button>
+
     <script>
-         window.addEventListener("resize", ShowSize);
-        function ShowSize() {
+      window.addEventListener("resize", ShowSize);
+      function ShowSize() {
+        var w =
+          window.innerWidth ||
+          document.documentElement.clientWidth ||
+          document.body.clientWidth;
+        var h =
+          window.innerHeight ||
+          document.documentElement.clientHeight ||
+          document.body.clientHeight;
 
-            var w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-            var h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+        var sw = screen.availWidth;
+        var sh = screen.availHeight;
 
-            var sw = screen.availWidth;
-            var sh = screen.availHeight;
+        document.getElementById("demo").innerHTML =
+          "Browser Width is: " + w + "and browser height is: " + h;
 
-            document.getElementById("demo").innerHTML =
-                "Browser Width is: " + w + "and browser height is: " + h;
+        document.getElementById("demo2").innerHTML =
+          "Screen Width is: " + sw + "and screen height is: " + sh;
+        document.getElementById("demo2").style.color = "red";
 
-            document.getElementById("demo2").innerHTML =
-                "Screen Width is: " + sw + "and screen height is: " + sh;
-            document.getElementById("demo2").style.color = "red";
+        document.getElementById("demo3").style.color = "blue";
+        //document.getElementById("demo3").innerHTML =window.location.href; //page location
 
-            document.getElementById("demo3").style.color = "blue";
-            //document.getElementById("demo3").innerHTML =window.location.href; //page location
-            
-            //document.getElementById("demo3").innerHTML =window.location.hostname;  //domain name
-            //document.getElementById("demo3").innerHTML =window.location.pathname;  //file path
-            document.getElementById("demo3").innerHTML =window.location.protocol;  //protocol name
-        }
-        function ChaneMyLocation(){
-                window.location.assign("https://gmail.com");
-            }
+        //document.getElementById("demo3").innerHTML =window.location.hostname;  //domain name
+        //document.getElementById("demo3").innerHTML =window.location.pathname;  //file path
+        document.getElementById("demo3").innerHTML = window.location.protocol; //protocol name
+      }
+      function ChaneMyLocation() {
+        window.location.assign("https://gmail.com");
+      }
+      var myWindow;
+      function openNewWindows() {
+        myWindow = window.open(
+          "https://www.toplearn.com",
+          "_blank",
+          "width=640,height=480,toolbar=no,adrressbar=no,location=no,menubar=no"
+        );
+      }
+      function closeWindow() {
+        myWindow.close();
+      }
     </script>
-
-</body>
-
+  </body>
 </html>
